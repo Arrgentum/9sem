@@ -1,0 +1,21 @@
+[req]
+days = 90
+serial = 1
+distinguished_name = req_distinguished_name
+x509_extensions = v3_ca
+prompt=no
+
+[req_distinguished_name]
+C = RU
+ST = Moscow
+L = Moscow
+O = votintsevak
+OU = "votintsevak P1_1"
+CN = "votintsevak Basic"
+emailAddress = alexeyvotintsev@yandex.ru
+
+[v3_ca]
+basicConstraints = CA:FALSE
+keyUsage = critical, digitalSignature 
+extendedKeyUsage = critical, serverAuth, clientAuth
+subjectAltName = URI:basic.votintsevak.ru, URI:basic.votintsevak.com
