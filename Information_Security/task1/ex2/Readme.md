@@ -17,7 +17,7 @@ openssl crl -noout -text -in crl_name.crl
 
 ### Проверка статуса сертификата crl:
 ```
-openssl verify -crl_check -CRLfile crl_name.crl -CAfile ca-chain.crt (__?__) name.crt
+openssl verify -crl_check -CRLfile crl_name.crl -CAfile ca-chain.crt **?** name.crt
 ```
 
 
