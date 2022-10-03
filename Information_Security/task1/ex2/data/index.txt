@@ -1,0 +1,1 @@
+R	230101193358Z	221003220431Z	371291CBE9304A5A6A1074F2FFCC392B21D962B3	unknown	/C=RU/ST=Moscow/L=Moscow/O=votintsevak/OU=votintsevak P1_2/CN=votintsevak Revoked/emailAddress=alexeyvotintsev@yandex.ru

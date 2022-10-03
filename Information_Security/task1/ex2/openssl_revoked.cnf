@@ -1,0 +1,25 @@
+[req]
+days = 90
+serial = 1
+distinguished_name = req_distinguished_name
+x509_extensions = v3_ca
+prompt=no
+
+[req_distinguished_name]
+C = RU
+ST = Moscow
+L = Moscow
+O = votintsevak
+OU = "votintsevak P1_2"
+CN = "votintsevak Revoked"
+emailAddress = alexeyvotintsev@yandex.ru
+
+[v3_ca]
+basicConstraints = CA:FALSE
+keyUsage = critical, digitalSignature
+extendedKeyUsage = serverAuth, clientAuth
+subjectAltName = URI:http://crl.revoked.votintsevak.ru
+crlDistributionPoints = URI:https://crl.votintsevak.ru
+
+[basic_cert]
+crlDistributionPoints = URI:http://crl.votintsevak.ru:8080/votintsevak-521.crl
