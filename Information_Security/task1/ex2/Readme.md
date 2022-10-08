@@ -29,11 +29,15 @@ openssl verify -crl_check -CRLfile crl_name.crl -CAfile ca-chain.crt **?** name.
 openssl genrsa -out name-valid.key 2048
 ```
 
-### Для выпуска сертфииката:
+### Для генерации запроса к Удостоверяющему центру:
 ```
-openssl req -config openssl_valid.cnf -x509 -new -key name-valid.key -days 90 -out name-valid.crt
+openssl req -config openssl_valid.cnf -new -key name-valid.key -out name-valid.csr
 ```
 
+### Для выпуска сертификата:
+```
+openssl x509 -req -purpose -days 90 -CA name-intr.crt -CAkey name-intr.key -CAcreateserial -CAserial serial -in name-valid.csr -out name-valid.crt -extensions v3_ca -extfile openssl_valid.cnf
+``` 
 
 
 ## Отозванный сертификат:
@@ -43,10 +47,15 @@ openssl req -config openssl_valid.cnf -x509 -new -key name-valid.key -days 90 -o
 openssl genrsa -out name-revoked.key 2048
 ```
 
-### Для выпуска сертфииката:
+### Для генерации запроса к Удостоверяющему центру:
 ```
-openssl req -config openssl_revoked.cnf -x509 -new -key name-revored.key -days 90 -out name-revoked.crt
+openssl req -config openssl_revoked.cnf -new -key name-intr.key -out name-revoked.csr
 ```
+
+### Для выпуска сертификата:
+```
+openssl x509 -req -purpose -days 90 -CA name-intr.crt -CAkey name-intr.key -CAcreateserial -CAserial serial -in name-revoked.csr -out name-revoked.crt -extensions v3_ca -extfile openssl_revoked.cnf
+``` 
 
 
 
@@ -62,4 +71,13 @@ openssl ca -config openssl_crl.cnf -gencrl -out crl_name.crl
  openssl ca -config openssl_crl.cnf -revoke name-revoked.crt 
 ```
 
+### Повторный выпуск crl файла (обновленного)
+```
+openssl ca -config openssl_crl.cnf -gencrl -out crl_name.crl
+```
+
+### Генерация chain файла
+```
+cat name-ca.crt name-intr-crt > name-chain.crt
+```
 

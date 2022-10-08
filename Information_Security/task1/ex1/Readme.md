@@ -48,7 +48,7 @@ openssl req -config openssl_intr.cnf -new -key name-intr.key -out name-intr.csr
 
 ### Для выпуска сертификата:
 ```
-openssl x509 -req -purpose -days 365 -CA name-ca.crt -CAkey name-ca.key -Cacreateserial -CAserial serial -in name-intr.csr -out name-intr.crt -extensions v3_ca -extfile openssl_intr.cnf
+openssl x509 -req -purpose -days 365 -CA name-ca.crt -CAkey name-ca.key -CAcreateserial -CAserial serial -in name-intr.csr -out name-intr.crt -extensions v3_ca -extfile openssl_intr.cnf
 ``` 
 
 
@@ -69,5 +69,5 @@ openssl req -config openssl_basic.cnf -new -key name-basic.key -out name-basic.c
 
 ### Для выпуска сертификата:
 ```
-openssl x509 -req -purpose -days 90 -CA name-intr.crt -CAkey name-intr.key -Cacreateserial -CAserial serial -in name-basic.csr -out name-basic.crt -extensions v3_ca -extfile openssl_basic.cnf
+openssl x509 -req -purpose -days 90 -CA name-intr.crt -CAkey name-intr.key -CAcreateserial -CAserial serial -in name-basic.csr -out name-basic.crt -extensions v3_ca -extfile openssl_basic.cnf
 ``` 
