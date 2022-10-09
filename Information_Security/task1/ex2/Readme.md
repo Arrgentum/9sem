@@ -10,6 +10,7 @@
 - Перенести ...-intr.crt и ...-intr.key в данную директорию
 - Создать файл index.txt
 
+
 ### Просмотр содержимого файла crl-файла:
 ```
 openssl crl -noout -text -in crl_name.crl
@@ -17,7 +18,7 @@ openssl crl -noout -text -in crl_name.crl
 
 ### Проверка статуса сертификата crl:
 ```
-openssl verify -crl_check -CRLfile crl_name.crl -CAfile ca-chain.crt **?** name.crt
+openssl verify -crl_check -CRLfile crl_name.crl -CAfile ca-chain.crt name.crt
 ```
 
 
@@ -49,7 +50,7 @@ openssl genrsa -out name-revoked.key 2048
 
 ### Для генерации запроса к Удостоверяющему центру:
 ```
-openssl req -config openssl_revoked.cnf -new -key name-intr.key -out name-revoked.csr
+openssl req -config openssl_revoked.cnf -new -key name-revoked.key -out name-revoked.csr
 ```
 
 ### Для выпуска сертификата:
@@ -68,12 +69,12 @@ openssl ca -config openssl_crl.cnf -gencrl -out crl_name.crl
 
 ### Отзыв сертификата:
 ```
- openssl ca -config openssl_crl.cnf -revoke name-revoked.crt 
+openssl ca -config openssl_crl.cnf -revoke name-revoked.crt 
 ```
 
 ### Повторный выпуск crl файла (обновленного)
 ```
-openssl ca -config openssl_crl.cnf -gencrl -out crl_name.crl
+openssl ca -config openssl_crl.cnf -gencrl -x509 -out crl_name.crl
 ```
 
 ### Генерация chain файла

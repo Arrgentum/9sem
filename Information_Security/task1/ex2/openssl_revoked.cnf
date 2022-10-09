@@ -11,15 +11,12 @@ ST = Moscow
 L = Moscow
 O = votintsevak
 OU = "votintsevak P1_2"
-CN = "votintsevak Revoked"
+CN = "votintsevak CRL Revoked"
 emailAddress = alexeyvotintsev@yandex.ru
 
 [v3_ca]
 basicConstraints = CA:FALSE
 keyUsage = critical, digitalSignature
-extendedKeyUsage = serverAuth, clientAuth
+extendedKeyUsage = critical, serverAuth, clientAuth
 subjectAltName = URI:crl.revoked.votintsevak.ru
-crlDistributionPoints = URI:https://crl.votintsevak.ru
-
-[basic_cert]
 crlDistributionPoints = URI:http://crl.votintsevak.ru:8080/votintsevak-521.crl

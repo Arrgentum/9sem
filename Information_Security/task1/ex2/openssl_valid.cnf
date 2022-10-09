@@ -11,7 +11,7 @@ ST = Moscow
 L = Moscow
 O = votintsevak
 OU = "votintsevak P1_2"
-CN = "votintsevak Valid"
+CN = "votintsevak CRL Valid"
 emailAddress = alexeyvotintsev@yandex.ru
 
 [v3_ca]
