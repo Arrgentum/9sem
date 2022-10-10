@@ -17,7 +17,7 @@ emailAddress = alexeyvotintsev@yandex.ru
 [v3_ca]
 basicConstraints = CA:FALSE
 keyUsage = critical, digitalSignature
-extendedKeyUsage = serverAuth, clientAuth
+extendedKeyUsage = critical, serverAuth, clientAuth
 subjectAltName = URI:crl.valid.votintsevak.ru
 crlDistributionPoints = URI:https://crl.votintsevak.ru
 
