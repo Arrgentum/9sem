@@ -35,7 +35,7 @@ openssl genrsa -out name-valid.key 2048
 openssl req -config openssl_valid.cnf -new -key name-valid.key -out name-valid.csr
 ```
 
-### Для выпуска сертификата:
+### Для выпуска сертификата (intr взфт с прошлого задания):
 ```
 openssl x509 -req -purpose -days 90 -CA name-intr.crt -CAkey name-intr.key -CAcreateserial -CAserial serial -in name-valid.csr -out name-valid.crt -extensions v3_ca -extfile openssl_valid.cnf
 ``` 
@@ -53,7 +53,7 @@ openssl genrsa -out name-revoked.key 2048
 openssl req -config openssl_revoked.cnf -new -key name-revoked.key -out name-revoked.csr
 ```
 
-### Для выпуска сертификата:
+### Для выпуска сертификата (intr взфт с прошлого задания):
 ```
 openssl x509 -req -purpose -days 90 -CA name-intr.crt -CAkey name-intr.key -CAcreateserial -CAserial serial -in name-revoked.csr -out name-revoked.crt -extensions v3_ca -extfile openssl_revoked.cnf
 ``` 
