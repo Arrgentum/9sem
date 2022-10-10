@@ -74,7 +74,7 @@ openssl ca -config openssl_crl.cnf -revoke name-revoked.crt
 
 ### Повторный выпуск crl файла (обновленного)
 ```
-openssl ca -config openssl_crl.cnf -gencrl -x509 -out crl_name.crl
+openssl ca -config openssl_crl.cnf -gencrl -out crl_name.crl
 ```
 
 ### Генерация chain файла (ca и intr взяты с прошлого задания)
